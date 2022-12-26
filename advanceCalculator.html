@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            
+        }
+        #back{
+            width: 300px;
+            height: 430px;
+            background-color: black;
+            padding: 15px;
+            border-radius: 15px;
+        }
+        #center{
+            width: 270px;
+            height: 50px;
+            font-size: 35px;
+            background-color: white;
+            margin: 12px;
+            margin-top: 30px;
+        }
+        button[type=button]{
+            width: 50px;
+            height: 50px;
+            margin-left: 16px;
+            margin-top: 15px;
+            font-size: 18px;
+            
+        }
+        button[type=button]:hover{
+            background-color: aquamarine;
+            cursor: grab;
+        }
+        #equal{
+            width: 260px;
+            font-size: 30px;
+            color: dimgray;
+            background-color: blue;
+        }
+        #equal:hover{
+            background-color: aqua;
+            /* border-radius: 16px; */
+        }
+        
+    </style>
+</head>
+<body>
+        
+    <div id="back">
+        <div id="center"></div>
+        <button type="button" value="7" id="seven" class="A" onclick="pSeven()">7</button>
+        <button type="button" value="8" id="eight" class="A" onclick="pEight()">8</button>
+        <button type="button" value="9" id="nine" class="A" onclick="pNine()">9</button>
+        <button type="button" value="/" id="divide" onclick="pDivide()">/</button><br>
+        <button type="button" value="4" id="four" class="A" onclick="pFour()">4</button>
+        <button type="button" value="5" id="five" class="A" onclick="pFive()">5</button>
+        <button type="button" value="6" id="six" class="A" onclick="pSix()">6</button>
+        <button type="button" value="*" id="mul" onclick="pMul()">x</button><br>
+        <button type="button" value="1" id="one" onclick="pOne()" class="A">1</button>
+        <button type="button" value="2" id="two" class="A" onclick="pTwo()" >2</button>
+        <button type="button" value="3" id="three" class="A" onclick="pThree()" >3</button>
+        <button type="button" value="-" id="sub" onclick="pSub()" >-</button><br>
+        <button type="button" value="." id="point" onclick="pPoint()" >.</button>
+        <button type="button" value="0" id="zero" class="A" onclick="pZero()" >0</button>
+        <button type="button" value="+" id="add" onclick="pAdd()" >+</button>
+        <button type="button" value="c" id="cancel" onclick="pCancel()" >C</button><br>
+        <button type="button" value="=" id="equal" onclick="pEqual()" >=</button>
+    </div>
+    <script>
+        // whnever we press a digit it should be appended on the screen
+        // whenever we press an operator it should be appended and no other operator shld be appendend until clear button press
+        // to get the result press the equal btn
+        // after the result is available only clear btn shld wrk, no other btn shld prfrm any  action
+        // whenever we press an operator , the operator shld be store somewhere
+        const a =document.getElementById('one').innerText;
+        const b =document.getElementById('two').innerText;
+        const c =document.getElementById('three').innerText;
+        const d =document.getElementById('four').innerText;
+        const e =document.getElementById('five').innerText;
+        const f =document.getElementById('six').innerText;
+        const g =document.getElementById('seven').innerText;
+        const h =document.getElementById('eight').innerText;
+        const i =document.getElementById('nine').innerText;
+        const j =document.getElementById('zero').innerText;
+        const Divide =document.getElementById('divide').innerText;
+        const Mul =document.getElementById('mul').innerText;
+        const Add =document.getElementById('add').innerText;
+        const Sub =document.getElementById('sub').innerText;
+        const Point =document.getElementById('point').innerText;
+        // const Equal =document.getElementById('equal').innerText;
+        // const Cancel =document.getElementById('cancel').innerText;
+
+
+        let isresAvailable = false;
+        let operator='';
+            function pOne(){
+                if(!isresAvailable){
+                 document.getElementById('center').innerHTML +=a;
+                }
+                    
+            }
+            function pTwo(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=b;
+                }
+            }
+            function pThree(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=c;
+                } 
+            }
+            function pFour(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=d;
+                } 
+            }
+            function pFive(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=e;
+                }
+            }
+            function pSix(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=f;
+                }
+            }
+            function pSeven(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=g;
+                } 
+            }
+            function pEight(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=h; 
+                }
+            }
+            function pNine(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=i;
+                } 
+            }
+            function pZero(){
+                if(!isresAvailable){
+                    document.getElementById('center').innerHTML +=j;
+                } 
+            }
+            function pDivide(){
+                    if(operator==''){
+                        document.getElementById('center').innerHTML +=Divide;
+                    operator=Divide; 
+                    }
+            }
+            function pMul(){
+                if(operator==''){
+                    document.getElementById('center').innerHTML +=Mul; 
+                    operator=Mul;
+                }
+                   
+            }
+            function pAdd(){
+                if(operator==''){
+                    document.getElementById('center').innerHTML +=Add;
+                    operator=Add;
+                }
+            }
+            function pSub(){
+                if(operator==''){
+                    document.getElementById('center').innerHTML +=Sub;
+                    operator=Sub;
+                }
+            }
+            function pPoint(){
+                    document.getElementById('center').innerHTML +=Point; 
+            }
+            function pEqual(){
+                    isresAvailable=true
+                    const expression=document.getElementById('center').innerText;
+                    let num1 ="";
+                    
+                    let num2 ="";
+                    for(var i=0;i<expression.length;i++){
+                        if(expression.charAt(i)==operator){
+                                // alert(i)
+                                num1=num2;
+                                num2="";
+                                continue;
+                        }
+                        
+                        num2 += expression.charAt(i);
+                       
+                    }
+                   
+                    num1=parseFloat(num1);
+                     num2=parseFloat(num2);
+                    if(operator=='+'){
+                        let res1=num1 + num2;
+                       
+                        document.getElementById('center').innerHTML=res1;
+                    }
+                    if(operator=='-'){
+                        let res1=num1 - num2;
+                       
+                        document.getElementById('center').innerHTML=res1;
+                    }
+                    if(operator=='x'){
+                        let res1=num1 * num2;
+                       
+                        document.getElementById('center').innerHTML=res1;
+                    }
+                    if(operator=='/'){
+                        let res1=num1 / num2;
+                       
+                        document.getElementById('center').innerHTML=res1;
+                    }
+                    //  isresAvailable=false;
+                    // operator='';
+            }
+            function pCancel(){
+                    document.getElementById('center').innerHTML =""; 
+                    isresAvailable=false;
+                    operator='';
+            }
+
+           
+
+       
+
+    </script>
+</body>
+</html>
